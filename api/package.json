@@ -1,0 +1,16 @@
+{
+  "name": "@ocean-chat/api",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "tsc",
+    "start": "bun dist/index.js"
+  },
+  "dependencies": {
+    "@ocean-chat/database": "workspace:*",
+    "@ocean-chat/shared-types": "workspace:*",
+    "@ocean-chat/auth": "workspace:*",
+    "@ocean-chat/utils": "workspace:*"
+  }
+}

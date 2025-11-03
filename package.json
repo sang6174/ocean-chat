@@ -1,0 +1,27 @@
+{
+  "name": "ocean-chat",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "api/",
+    "web/",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --parallel dev",
+    "dev:web": "bun run --filter @ocean-chat/web dev",
+    "dev:api": "bun run --filter @ocean-chat/api dev",
+    "build": "bun run build",
+    "type-check": "bun run type-check",
+    "db:setup": "bun run db:setup"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.39.0",
+    "globals": "^16.5.0",
+    "typescript": "^5.0.0"
+  }
+}

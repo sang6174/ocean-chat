@@ -1,0 +1,7 @@
+# dependencies (bun install)
+node_modules
+api/node_modules
+web/node_modules
+
+# Environment Variables
+.env
