@@ -1,5 +1,5 @@
 {
-  "name": "@ocean-chat/api",
+  "name": "@ocean-chat/server",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
@@ -8,9 +8,10 @@
     "start": "bun dist/index.js"
   },
   "dependencies": {
-    "@ocean-chat/database": "workspace:*",
     "@ocean-chat/shared-types": "workspace:*",
-    "@ocean-chat/auth": "workspace:*",
-    "@ocean-chat/utils": "workspace:*"
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.0"  
   }
 }

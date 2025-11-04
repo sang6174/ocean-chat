@@ -11,10 +11,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@ocean-chat/auth": ["./packages/auth/src"],
-      "@ocean-chat/db": ["./packages/db/src"],
-      "@ocean-chat/shared-types": ["./packages/shared-types/src"],
-      "@ocean-chat/utils": ["./packages/utils/src"]
+      "@ocean-chat/shared-types": ["./shared-types/src"]    
     }
   }
 }

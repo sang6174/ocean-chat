@@ -3,17 +3,27 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "api/",
+    "scripts/",
+    "server/",
     "web/",
-    "packages/*"
+    "shared-types/"
   ],
   "scripts": {
     "dev": "bun run --parallel dev",
+    "dev:server": "bun run --filter @ocean-chat/server dev",
     "dev:web": "bun run --filter @ocean-chat/web dev",
-    "dev:api": "bun run --filter @ocean-chat/api dev",
+
+    "db:migrate": "bun run scripts/migrate.ts",
+    "db:seed": "bun run scripts/seed.ts",
+    "db:generate": "bun run scripts/generate-types.ts",
+    "db:setup": "bun run db:migrate && bun run db:generate",
+
     "build": "bun run build",
+    "build:server": "bun run --filter @ocean-chat/server build",
+    "buildd:web": "bun run --filter @ocean-chat/web build",
+
     "type-check": "bun run type-check",
-    "db:setup": "bun run db:setup"
+    "lint": "bun run lint"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
@@ -22,6 +32,6 @@
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^9.39.0",
     "globals": "^16.5.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.3.0"
   }
 }

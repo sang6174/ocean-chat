@@ -1,2 +1,2 @@
 [workspace]
-packages = ["api/*", 'web/*', "packages/*"]
+packages = ["server/*", 'web/*', "shared-types/*"]
