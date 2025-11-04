@@ -1,0 +1,11 @@
+{
+  "name": "@ocean-chat/scripts",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.0"  
+  }
+}
