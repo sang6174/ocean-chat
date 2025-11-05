@@ -27,6 +27,8 @@ export default [
       ...ts.configs.recommended.rules,
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
+      indent: ['error', 2],
+      '@typescript-eslint/indent': ['error', 2],
       'no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'off',
       'no-undef': 'off', 
