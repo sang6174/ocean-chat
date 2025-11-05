@@ -28,9 +28,11 @@ async function createDatabaseIfNotExists() {
   } else {
     console.log(`Database ${DB_NAME} already exists.`);
   }
+
+  await client.end();
 }
 
-async function runMigrations() {
+async function migrations() {
   const client = new Client({
     user: PG_USER,
     password: PG_PASSWORD,
@@ -55,8 +57,8 @@ async function runMigrations() {
 }
 
 createDatabaseIfNotExists()
-  .then(runMigrations)
+  .then(migrations)
   .catch(err => {
-    console.error('Migration failed:', err);
+    console.error('[DB-ERROR] Migration failed:', err);
     process.exit(1);
   });
