@@ -8,10 +8,15 @@
     "start": "bun dist/index.js"
   },
   "dependencies": {
-    "@ocean-chat/shared-types": "workspace:*",
+    "@ocean-chat/shared": "workspace:*",
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.0"
   },
   "devDependencies": {
-    "@types/pg": "^8.10.0"  
+    "@types/bcryptjs": "^3.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/pg": "^8.10.0",
+    "typescript": "^5.9.3"
   }
 }

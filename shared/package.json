@@ -1,0 +1,12 @@
+{
+  "name": "@ocean-chat/shared",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  }
+}

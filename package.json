@@ -6,7 +6,7 @@
     "scripts/",
     "server/",
     "web/",
-    "shared-types/"
+    "shared/"
   ],
   "scripts": {
     "dev": "bun run --parallel dev",

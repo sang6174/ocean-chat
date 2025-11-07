@@ -11,7 +11,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@ocean-chat/shared-types": ["./shared-types/src"]    
+      "@ocean-chat/shared": ["./shared/src"]    
     }
   }
 }
