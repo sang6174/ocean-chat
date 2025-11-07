@@ -23,9 +23,6 @@ CREATE TABLE IF NOT EXISTS main.users (
     id              UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     name            TEXT NOT NULL,
     email           TEXT UNIQUE NOT NULL,
-    age             TEXT,
-    address         TEXT,
-    avatar_url      TEXT,
     created_at      TIMESTAMPTZ DEFAULT NOW(),
     updated_at      TIMESTAMPTZ,
     is_deleted      BOOLEAN DEFAULT FALSE,
@@ -46,7 +43,6 @@ CREATE TABLE IF NOT EXISTS main.accounts (
 CREATE TABLE IF NOT EXISTS main.devices (
     id              UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     device_code     TEXT,
-    device_name     TEXT,
     created_at      TIMESTAMPTZ DEFAULT NOW(),
     updated_at      TIMESTAMPTZ,
     is_deleted      BOOLEAN DEFAULT FALSE,
@@ -60,19 +56,6 @@ CREATE TABLE IF NOT EXISTS main.account_devices (
     PRIMARY KEY (account_id, device_id)
 );
 
-CREATE TABLE IF NOT EXISTS main.sessions (
-    id              UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    access_token    TEXT UNIQUE NOT NULL,
-    refresh_token   TEXT UNIQUE NOT NULL,
-    is_active       BOOLEAN DEFAULT TRUE,
-    last_login      TIMESTAMPTZ DEFAULT NOW(),
-    created_at      TIMESTAMPTZ DEFAULT NOW(),
-    expired_at      TIMESTAMPTZ,
-    account_id      UUID REFERENCES main.accounts(id) ON DELETE CASCADE,
-    device_id       UUID REFERENCES main.devices(id) ON DELETE CASCADE,
-    user_id         UUID REFERENCES main.users(id) ON DELETE CASCADE
-);
-
 CREATE TABLE IF NOT EXISTS main.conversations (
     id              UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     type            conversation_type NOT NULL,
@@ -81,12 +64,6 @@ CREATE TABLE IF NOT EXISTS main.conversations (
     is_deleted      BOOLEAN DEFAULT FALSE,
     deleted_at      TIMESTAMPTZ,
     user_id         UUID REFERENCES main.users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS main.myself_chats (
-    id              UUID REFERENCES main.conversations(id) ON DELETE CASCADE,
-    user_id         UUID REFERENCES main.users(id) ON DELETE CASCADE,
-    PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS main.direct_chats (
@@ -113,7 +90,7 @@ CREATE TABLE IF NOT EXISTS main.group_participants (
 CREATE TABLE IF NOT EXISTS main.messages (
     id              UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     type            TEXT,
-    data            JSONB,
+    data            TEXT,
     created_at      TIMESTAMPTZ DEFAULT NOW(),
     updated_at      TIMESTAMPTZ,
     is_deleted      BOOLEAN DEFAULT FALSE,
